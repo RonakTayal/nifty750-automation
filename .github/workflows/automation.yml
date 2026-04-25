@@ -18,4 +18,7 @@ jobs:
 
       - run: pip install pandas yfinance gspread oauth2client
 
-      - run: python update_google_sheet.py
+      - name: Run script
+      env:
+        GOOGLE_CREDS: ${{ secrets.GOOGLE_CREDS }}
+      run: python update_google_sheet.py
